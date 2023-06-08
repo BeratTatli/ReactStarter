@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './App.css';
 import Navbar,{Alt_Navbar} from './components/navbar';
 import Govde from './components/body';
@@ -107,6 +107,24 @@ function App() {
   //     </div>
   //   </div>
   // )
+
+
+  const[renk,setRenk] = useState();
+
+  const renkDegisimi = useRef(null);
+
+  const degisim=()=>{
+    document.body.style.backgroundColor = renkDegisimi.current.value;
+    setRenk(()=>renkDegisimi.current.value)
+  }
+  return(
+
+    <div className='App'>
+      <p> Inputa ingilizce rengi gir</p>
+      <input type='text' ref={renkDegisimi} onChange={degisim}/>
+      <p>{renk}</p>
+    </div>
+  )
 
 }
 
