@@ -1,25 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './App.css';
 import Navbar,{Alt_Navbar} from './components/navbar';
 import Govde from './components/body';
 import Container from './components/container';
 import Icerik from './components/icerik';
 
-const tema={
-  dark:{
-    color:"white",
-    backgroundColor:"black"
-  } ,
-  light:{
-    color:"black",
-    backgroundColor:"white"
-  }
-};
-export const TemaVerisi = React.createContext();
+//USE CONTEXT ICIN OLUSTURULAN DEGERLER
+// const tema={
+//   dark:{
+//     color:"white",
+//     backgroundColor:"black"
+//   } ,
+//   light:{
+//     color:"black",
+//     backgroundColor:"white"
+//   }
+// };
+// export const TemaVerisi = React.createContext();
 
 function App() {
 
+  
   //STATE
+
 
   // const [deger,setDeger] = useState(0);
 
@@ -53,32 +56,58 @@ function App() {
   
   
   
-  //USE CONTEXT KULLANIMI(COMPONENTLER ARASI STATE TASIMA)
+  // USE CONTEXT KULLANIMI(COMPONENTLER ARASI STATE TASIMA)
 
-  const[degers,setDegers] = useState(tema.dark);
   // const degers = "Berat Tatli";
-  function degistir(){
-    if(tema.dark===degers){
-      setDegers(tema.light);
-      console.log(degers);
-    }
-    else{
-      setDegers(tema.dark);
-      console.log(degers);
-    } 
-  }
+  // const[degers,setDegers] = useState(tema.dark);
+  // function degistir(){
+  //   if(tema.dark===degers){
+  //     setDegers(tema.light);
+  //     console.log(degers);
+  //   }
+  //   else{
+  //     setDegers(tema.dark);
+  //     console.log(degers);
+  //   } 
+  // }
 
-  return(
-    <div className='App'>
-      <button onClick={degistir}>
-        {tema.dark === degers ? "Açık" : "Koyu"}
-      </button>
-      <TemaVerisi.Provider value={degers}>
+  // return(
+  //   <div className='App'>
+  //     <button onClick={degistir}>
+  //       {tema.dark === degers ? "Açık" : "Koyu"}
+  //     </button>
+  //     <TemaVerisi.Provider value={degers}>
         
-        <Icerik/>
-      </TemaVerisi.Provider>
-    </div>
-  );
+  //       <Icerik/>
+  //     </TemaVerisi.Provider>
+  //   </div>
+  // );
+
+  
+
+  // UseEffect hook'u ile timer yapımı
+  // const [timer,setTimer] = useState(5);
+
+  // useEffect(()=>{
+
+  //   if(timer!==0){
+  //     const interval = setInterval(()=>{
+  //       setTimer(timer-1)
+  //     }, 1000);
+
+  //     return()=>clearInterval(interval);
+  //   }
+  // },[timer])
+
+
+  // return(
+  //   <div className='App'>
+  //     <div style ={{height:"250px", width:"250px", backgroundColor:"blue", borderRadius:"50%", color:"white", fontSize:"60px",margin:"10px auto", lineHeight:"250px"}}>
+  //       {timer}
+  //     </div>
+  //   </div>
+  // )
+
 }
 
 
